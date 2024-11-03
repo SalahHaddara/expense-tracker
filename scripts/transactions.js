@@ -11,4 +11,11 @@ class TransactionManager {
         this.transactions.push({...transaction, id: Date.now()});
         this.save();
     }
+
+    delete(id) {
+        this.transactions = this.transactions.filter(transaction => {
+            return transaction.id !== id;
+        });
+        this.save();
+    }
 }
