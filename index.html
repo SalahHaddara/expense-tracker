@@ -5,28 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Tracker</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/component.css">
 </head>
 <body>
-<header>
-    <h1>Expense Tracker</h1>
-</header>
 
-<main class="container">
-    <div class="balance-card">
+<div class="wrapper">
+    <div class="header">
+        <h1>Expense Tracker</h1>
+    </div>
+    <div class="total-card">
         <div>
             <h2>Total Balance</h2>
-            <div>$0.00</div>
+            <p>$0.00</p>
         </div>
     </div>
 
     <div class="summary">
         <div class="summary-card">
             <h3>Total Income</h3>
-            <div>$0.00</div>
+            <p class="income">$0.00</p>
         </div>
         <div class="summary-card">
             <h3>Total Expenses</h3>
-            <div>$0.00</div>
+            <p class="expense">$0.00</p>
         </div>
     </div>
 
@@ -52,7 +53,7 @@
                 <label for="notes">Notes</label>
                 <input type="text" id="notes" placeholder="Add your note here">
             </div>
-            <button type="submit">Add Transaction</button>
+            <button type="submit" class="button">Add Transaction</button>
         </form>
     </div>
 
@@ -82,8 +83,11 @@
             <label for="searchNotes">Search Notes</label>
             <input type="text" id="searchNotes" placeholder="Search in notes">
         </div>
+
+        <div class="transaction-list" id="transactionList">
+        </div>
     </div>
 
-</main>
+</div>
 </body>
 </html>
