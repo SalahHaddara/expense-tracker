@@ -28,4 +28,15 @@ class TransactionManager {
             this.save();
         }
     }
+
+    getFiltered({type, minAmount, maxAmount, date, searchText}) {
+        return this.transactions.filter(t => {
+            const matchesType = type === 'all' || t.type === type;
+            const matchesAmount = t.amount >= (minAmount || 0) && t.amount <= (maxAmount || Infinity);
+            const matchesDate = !date || t.date === date;
+            const matchesNotes = !searchText || t.notes.toLowerCase().includes(searchText.toLowerCase());
+
+            return matchesType && matchesAmount && matchesDate && matchesNotes;
+        });
+    }
 }
