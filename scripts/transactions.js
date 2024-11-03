@@ -39,4 +39,25 @@ class TransactionManager {
             return matchesType && matchesAmount && matchesDate && matchesNotes;
         });
     }
+
+    calculateTotals() {
+        let totalIncome = 0;
+        let totalExpense = 0;
+
+        this.transactions.forEach(transaction => {
+            if (transaction.type === 'income') {
+                totalIncome += transaction.amount;
+            } else {
+                totalExpense += transaction.amount;
+            }
+        });
+
+        const balance = totalIncome - totalExpense;
+
+        return {
+            income: totalIncome,
+            expense: totalExpense,
+            balance: balance
+        };
+    }
 }
